@@ -1,0 +1,12 @@
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <div>FirstName: <input type="text" formControlName="firstName" /></div>
+  <div>LastName: <input type="text" formControlName="lastName" /></div>
+  <div>Email: <input type="text" formControlName="email" /></div>
+  <div>Gender: <input type="radio" name="formControlName" ="gender" /></div>
+</form>
+
+constructor(private formBuilder:FormBuilder){} userForm =
+this.formBuilder.group({ firstName:['', [Validators.required,
+Validators.pattern('')], lastName:['', [Validators.required,
+Validators.pattern('')] email:['', [Validators.required, Validators.pattern('')]
+}) submitForm(){ console.log(this.userForm.value) }
